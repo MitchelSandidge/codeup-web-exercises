@@ -3,22 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Github Recreation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #221B1B;
+            padding: 30px;
+            text-align: left;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Container for flexboxes */
+        section {
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        /* Style the navigation menu */
+        nav {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            background: #E4E7EB;
+            padding: 20px;
+        }
+
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Style the content */
+        article {
+            -webkit-flex: 3;
+            -ms-flex: 3;
+            flex: 3;
+            background-color: #E4E7EB;
+            padding: 10px;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+            section {
+                -webkit-flex-direction: column;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div>
             <input type="image" src="img/Github logo.jpeg" height="50" width="70"name="saveForm" class="btTxt submit" id="saveForm" />
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg>
             <a href="http://google.com">Pull Requests</a>
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg>
+
             <a href="http://google.com">Issues</a>
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg>
+
             <a href="http://google.com">Marketplace</a>
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg>
+
             <a href="http://google.com">Explore</a>
+
         </div>
     </header>
-    <main>
+    <article>
         <br>
         <div>
             <img src="img/Codeup-logo.png" height="70" width="180"/>
@@ -34,27 +98,28 @@
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg>
             <a href="http://google.com">Settings</a>
         </div>
-    </main>
-    <aside>
+    </article>
+    <nav>
         <br><br><br><br>
         <div>
+            <hr>
             <table>
                 <tr>
-                    <th>Codeups dev Team</th>
+                    <th>Codeups Dev Team</th>
                 </tr>
                 <tr>
-                    <td><a href="http://google.com">Kent Beck</a></td>
+                    <td><svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg><a href="http://google.com">Kent Beck</a></td>
                 </tr>
                 <tr>
-                    <td><a href="http://google.com">Codeups Instruction Team</a></td>
+                    <td><svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg><a href="http://google.com">Codeups Instruction Staff</a></td>
                 </tr>
                 <tr>
-                    <td><a href="http://google.com">Martin Fowler</a></td>
+                    <td><svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="26" height="26" style="fill:#DEDEDE;stroke:#555555;stroke-width:2"/><text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#555555"></text></svg><a href="http://google.com">Martin Fowler</a></td>
                 </tr>
             </table>
             <br><br><br>
         </div>
-    </aside>
+    </nav>
     <hr>
     <footer>
         <div>

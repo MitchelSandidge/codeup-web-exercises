@@ -13,8 +13,9 @@ h1,h2,h3 {
 }
 
 body {
-    background-color: #DFDAD3;
     font-family: 'Titillium Web', sans-serif;
+    background-image: url("http://www.webdesigndev.com/wp-content/uploads/2013/06/Triangle.jpg");
+
 }
 #core-values{
     margin-left: 200px;
@@ -28,6 +29,13 @@ body {
     text-indent: 600px;
 }
 
+#paragraph{
+    font-size: 20px;
+}
+
+#original-header{
+    font-size: 50px;
+}
 
 ol {list-style: upper-roman}
 

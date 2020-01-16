@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Register With Us</title>
+    <style>
+        body{
+            background-color: #EFEFFB;
+            text-align: center;
+        }
+        footer{
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
     <div id="Register Form">
         <form action="https://www.elformo.com/forms/822185b1-df85-48f6-8d7e-6e61d59f8c2d" method="post" accept-charset="UTF-8">
             <header>
+                <img src="img/fast-banana.png" height="325" width="900"/>
                 <h1>We're glad to have you as a part of the team!</h1>
                 <p>There are a few things you need to do before you get started!<br> Please take a moment to register with us!</p>
                 <hr><br>
             </header>
             <div id="Email input">
-                <label for="email">Enter email to send recipt to your email</label><br>
+                <label for="email">Enter email to send receipt to your email:</label><br>
                 <input id="email" name="email" type="email" placeholder="Email"/>
                 <br><br>
             </div>
             <div id="Password input">
-                <label for="password">Enter your password</label><br>
+                <label for="password">Enter your password:</label><br>
                 <input type="password" name="Password" id="password" placeholder="Password">
                 <br><br>
             </div>
             <div id="Bio input">
-                <label for="bio">Please enter your bio</label>
+                <label for="bio">Please enter your bio:</label>
                 <br>
-                <textarea name="Bio" id="bio" placeholder="Enter bio here"></textarea>
+                <textarea name="Bio" id="bio" rows="10" cols="50" placeholder="Enter bio here"></textarea>
                 <br>
             </div>
             <div id="How did they hear of us radio">
@@ -37,7 +47,7 @@
                 <br>
             </div>
             <div id="Web Browser input">
-                <label for="webbrowser-select">Select your internet browser</label>
+                <label for="webbrowser-select">Select your internet browser:</label>
                 <select name="Browser" id="webbrowser-select">
                     <option value="Chrome">Chrome</option>
                     <option value="Safari">Safari</option>
@@ -46,9 +56,12 @@
                 <br><br>
             </div>
             <div id="Submit button">
-                 <button type="submit">submit</button>
+                 <button type="submit" style="height: 25px; width: 100px" >submit</button>
             </div>
         </form>
+        <footer>
+            <p><em>Fast Banana Marketing <sup>TM</sup></em></p>
+        </footer>
     </div>
 </body>
 </html>

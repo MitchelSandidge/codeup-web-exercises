@@ -2,12 +2,62 @@
 
  */
 
+#main-header {
+    text-align: center;
+}
 
-.fancy-header {
-    color: purple ;
+
+h1,h2,h3 {
+    color: #005eb5;
     text-decoration: underline;
 }
 
-.youre-a-loser{
-    color:saddlebrown;
+body {
+    background-color: #DFDAD3;
+    font-family: 'Titillium Web', sans-serif;
+}
+#core-values{
+    margin-left: 200px;
+}
+
+#process{
+    margin-left: 450px;
+}
+
+#vision{
+    text-indent: 600px;
+}
+
+
+ol {list-style: upper-roman}
+
+ul {list-style: circle}
+
+
+#first-row {
+    color: green;
+}
+
+#second-row {
+    color: maroon;
+}
+
+#third-row{
+    color: crimson;
+}
+
+#fourth-row{
+    color: darkblue;
+}
+
+a:link{
+    color:red;
+}
+
+a:visited {
+    color:black;
+}
+
+a:active {
+    color:green;
 }

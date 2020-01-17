@@ -30,7 +30,6 @@ body, html {
     background-color: var(--bg-info);
     padding: 10px;
     border-radius: 10px;
-
 }
 /* success/green */
 .message-success{

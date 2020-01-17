@@ -11,66 +11,61 @@ body, html {
 }
 
 form {
-    margin: 1em;
-    padding: 1em;
-    box-sizing: border-box;
-    width: 500px;
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
+    margin: 1em;
+    padding: 1em;
 }
 
 fieldset {
     -webkit-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
-    padding: 1em;
-    border: 0;
-    background-color: white;
+
     /* There must be 1em between the content and the border of this element */
     /* It should have no border */
     /* Its background should be white */
+    padding: 1em;
+    border: 0;
+    background: white;
 }
 
 .width-80 {
-    box-sizing: border-box;
-    width: 80%;
-    margin: 0 auto;
     /* The element with this class should 80% of the width and it must be centered */
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
+    width: 40%;
+    margin: 0 auto;
+
 }
 
 .form-group {
-    width: 100%;
-    border-bottom: .5em;
-    border-top: .5em;
-    padding: 7px;
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
+    width: 100%;
+    margin-bottom: .5em;
+    margin-top: .5em;
+
 }
 
 .form-label {
-    font-weight: bold;
     /* The text of a label must be bold */
+    font-weight: bold;
 }
 
 .btn-block {
-    width: 100%;
-    padding: 5px;
-
     /* This element should use 100% of the width */
+    width: 100%;
 }
 
 .btn {
-    margin: 8px;
-    color: white;
-    font-weight: bold;
-    border: 1px;
-    background-color: lightgray;
-    box-sizing: border-box;
     /* There must be a separation of 8px between the text and the border of this element */
     /* The text color of this element should be white and bold */
     /* The border of this element should be 1px, and its color should be light grey */
     background-color: #0fb784;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid lightgrey;
 }
 
 .form-control {
@@ -81,7 +76,11 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Calculate based on the padding of the `.btn` class */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: 100%;
+
+    padding: 4px 0;
+    margin: .5em 0;
+    box-sizing: border-box;
+    width: 100% ;
 }
 
 

@@ -11,11 +11,10 @@ body, html {
 }
 
 form {
+    margin: 1em;
     padding: 1em;
-    border-width: 1em;
-    border-top: 1em;
-    border-bottom: 1em;
-
+    box-sizing: border-box;
+    width: 500px;
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
 }
@@ -33,6 +32,7 @@ fieldset {
 }
 
 .width-80 {
+    box-sizing: border-box;
     width: 80%;
     margin: 0 auto;
     /* The element with this class should 80% of the width and it must be centered */
@@ -43,6 +43,7 @@ fieldset {
     width: 100%;
     border-bottom: .5em;
     border-top: .5em;
+    padding: 7px;
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
 }
@@ -54,6 +55,7 @@ fieldset {
 
 .btn-block {
     width: 100%;
+    padding: 5px;
 
     /* This element should use 100% of the width */
 }
@@ -64,6 +66,7 @@ fieldset {
     font-weight: bold;
     border: 1px;
     background-color: lightgray;
+    box-sizing: border-box;
     /* There must be a separation of 8px between the text and the border of this element */
     /* The text color of this element should be white and bold */
     /* The border of this element should be 1px, and its color should be light grey */

@@ -1,0 +1,60 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+
+/* Variables for the colors */
+:root {
+    --text-info: #173483;
+    --bg-info: #D5D7FF;
+
+    --text-success: #178329;
+    --bg-success: #D5FFDE;
+
+    --text-warning: #7F8317;
+    --bg-warning: #FFFDD5;
+
+    --text-error: #831717;
+    --bg-error: #FFD4D1;
+}
+
+/* info/blue */
+.message-info {
+    margin: 10px;
+    border: 1px solid darkgray;
+    color: var(--text-info);
+    background-color: var(--bg-info);
+    padding: 10px;
+    border-radius: 10px;
+
+}
+/* success/green */
+.message-success{
+    margin: 10px;
+    border: 1px solid darkgray;
+    color: var(--text-success);
+    background-color: var(--bg-success);
+    padding: 10px;
+    border-radius: 10px;
+}
+/* warning/yellow */
+.message-warning {
+    margin: 10px;
+    border: 1px solid darkgray;
+    color: var(--text-warning);
+    background-color: var(--bg-warning);
+    padding: 10px;border-radius: 10px;
+}
+/*error/red */
+.message-error {
+    margin: 10px;
+    border: 1px solid darkgray;
+    color: var(--text-error);
+    background-color: var(--bg-error);
+    padding: 10px;
+    border-radius: 10px;
+}

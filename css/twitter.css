@@ -122,6 +122,8 @@ a {
     float: left;
 }
 .media-body {
-    width: 100%;
+    width: calc(100% - 50px);
+
+
 }
 

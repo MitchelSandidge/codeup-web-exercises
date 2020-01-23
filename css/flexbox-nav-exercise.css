@@ -3,13 +3,15 @@
 }
 body {
     margin: 0;
-    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+
 }
 .flex-container {
     width: 100%;
     background: lightgray;
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
 .flex-item {
     padding: 1em;
@@ -22,6 +24,7 @@ body {
 }
 a{
     display: inline-block;
+    text-decoration: none;
 }
 a:hover {
     color:blue;
@@ -29,5 +32,6 @@ a:hover {
 #logo {
     font-size: 3em;
     padding: .2em;
-   margin: 0 auto;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
 }

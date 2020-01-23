@@ -32,8 +32,7 @@ body {
     position: relative;
     border:20px solid rgba(0,0,0,0.3);
     border-radius:5px;
-    margin: auto;
-    display: flex;
+
 }
 
 .flex-form > * {
@@ -62,7 +61,10 @@ body {
 }
 .flex-form {
     /* flex items */
+    margin: auto;
+    display: flex;
 }
 .destination {
     /* bigger item */
+    flex-basis: 15em;
 }

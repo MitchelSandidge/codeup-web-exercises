@@ -7,12 +7,27 @@ body {
 }
 .flex-container {
     width: 100%;
-    border: 3px solid goldenrod;
+    background: lightgray;
     display: flex;
+    align-items: center;
 }
 .flex-item {
-    background: #BFD45D;
-    border: 2px solid #F9EFD6;
     padding: 1em;
     display: flex;
+}
+
+.flex-item a {
+    color: black;
+
+}
+a{
+    display: inline-block;
+}
+a:hover {
+    color:blue;
+}
+#logo {
+    font-size: 3em;
+    padding: .2em;
+   margin: 0 auto;
 }

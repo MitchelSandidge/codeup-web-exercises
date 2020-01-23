@@ -35,3 +35,45 @@ a:hover {
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
+
+/* Mobile Devices*/
+@media all and (max-width: 768px){
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: 'Work Sans', sans-serif;
+
+    }
+    .flex-container {
+        width: 30%;
+        background: lightgray;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+    }
+    .flex-item {
+        padding: 1em;
+        display: flex;
+    }
+
+    .flex-item a {
+        color: black;
+
+    }
+    a{
+        display: inline-block;
+        text-decoration: none;
+    }
+    a:hover {
+        color:blue;
+    }
+    #logo {
+        font-size: 3em;
+        padding: .1em;
+        margin: 0 auto;
+        font-family: 'Montserrat', sans-serif;
+        order: 1;
+    }
+}

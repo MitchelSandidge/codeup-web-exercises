@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Layout 3</title>
+    <style>
+        body {
+            margin: 0px;
+            display: grid;
+            font-size: 50px;
+            color: white;
+            grid-gap:10px;
+            height: 100vh;
+            grid-template-columns: 25% repeat(3 , 1fr);
+            grid-template-rows: repeat(5 , 1fr);
+            grid-template-areas:
+            "one one one one"
+            "two three four four"
+            "two five five six"
+            "two seven eight nine"
+            "two ten ten ten";
+        }
+
+        .one {
+            grid-area: one;
+            background-color: gold;
+        }
+        .two {
+            grid-area: two;
+            background-color: gold;
+        }
+        .three {
+            grid-area: three;
+            background-color: gold;
+        }
+        .four {
+            grid-area: four;
+            background-color: gold;
+        }
+        .five {
+            grid-area: five;
+            background-color: gold;
+        }
+        .six {
+            grid-area: six;
+            background-color: gold;
+        }
+        .seven {
+            grid-area: seven;
+            background-color: gold;
+        }
+        .eight {
+            grid-area: eight;
+            background-color: gold;
+        }
+        .nine {
+            grid-area: nine;
+            background-color: gold;
+        }
+        .ten {
+            grid-area: ten;
+            background-color: gold;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="one">
+    1
+</div>
+<div class="two">
+    2
+</div>
+<div class="three">
+    3
+</div>
+<div class="four">
+    4
+</div>
+<div class="five">
+    5
+</div>
+<div class="six">
+    6
+</div>
+<div class="seven">
+    7
+</div>
+<div class="eight">
+    8
+</div>
+<div class="nine">
+    9
+</div>
+<div class="ten">
+    10
+</div>
+
+</body>
+</html>

@@ -23,6 +23,8 @@ nav {
     grid-area: nav;
     width: 100%;
     background: black;
+    display: flex;
+    align-items: center;
 
 
 }
@@ -85,11 +87,13 @@ h1 {
 .page-list {
     grid-area: page-list;
     display: flex;
+    justify-content: center;
 }
 .page-list a {
     color: white;
     background: black;
     padding: .3em;
+    margin-right: 5px;
 
 }
 footer {

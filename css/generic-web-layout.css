@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 5% repeat(3 , 1fr) repeat(4 , 5%);
+    grid-template-columns: 20% 1fr 25%;
+    grid-template-areas:
+    "nav nav nav"
+    "side-nav main-top ad-top"
+    "side-nav main-mid ad-mid"
+    "side-nav main-bottom ad-bottom"
+    "side-nav page-list ."
+    "side-nav footer footer"
+    "side-nav footer footer"
+    "side-nav bottom-footer bottom-footer";
+}
+
+nav {
+    grid-area: nav;
+    width: 100%;
+    background: black;
+
+
+}
+nav>ul {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+    color: white;
+}
+#main-ul li{
+    color: white;
+    list-style-type: none;
+}
+#main-ul a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+}
+nav a:hover {
+    background: grey;
+}
+.side-nav {
+    grid-area: side-nav;
+    background: rgb(240 240 240);
+}
+.side-ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.side-nav a {
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+}
+h1 {
+    color: rgb(62 141 131);
+}
+.main-top {
+    grid-area: main-top;
+    padding: 15px;
+}
+.main-mid {
+    grid-area: main-mid;
+    padding: 15px;
+}
+.main-bottom {
+    grid-area: main-bottom;
+    padding: 15px;
+}
+.ad-top {
+    grid-area: ad-top;
+}
+.ad-mid {
+    grid-area: ad-mid;
+}
+.ad-bottom {
+    grid-area: ad-bottom;
+}
+.page-list {
+    grid-area: page-list;
+    display: flex;
+}
+.page-list a {
+    color: white;
+    background: black;
+    padding: .3em;
+
+}
+footer {
+    grid-area: footer;
+    background: rgb(102 102 102);
+    color: white;
+    display: flex;
+}
+.bottom-footer {
+    grid-area: bottom-footer;
+    background: rgb(51 51 51);
+    color: white;
+    display: flex;
+}
+.bottom-footer a {
+    color: white;
+    align-self: center;
+
+}
+#top-top-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 1em;
+}
+#top-bot-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    padding-bottom: 80px;
+    margin: 1em;
+}
+#mid-top-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 1em;
+}
+#mid-bot-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    padding-bottom: 80px;
+    margin: 1em;
+}
+#bottom-top-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 1em;
+}
+#bottom-bot-ad {
+    border: 1px solid darkgray;
+    padding: 20px;
+    padding-bottom: 80px;
+    margin: 1em;
+}

@@ -3,11 +3,11 @@
 }
 
 body {
-    background: mediumpurple;
+    background: rgb(4 35 69);
     color: white;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(135deg, mediumpurple, lightblue);
+    font-family: 'Do Hyeon', sans-serif;
+    background-image: linear-gradient(135deg, rgb(4 35 69), white);
 }
 
 .wrapper {
@@ -30,7 +30,7 @@ ul {
 }
 
 header {
-    background: purple;
+    background: rgb(4 35 69);;
     /* TODO: define the grid area of header such that it takes up the first row and middle three columns */
     grid-area: 1 / 2 / 2 / 5;
 }
@@ -61,21 +61,22 @@ header ul {
 
 header a {
     font-weight: lighter;
+    color: lightgray;
 }
 
 header ul li:nth-of-type(2) {
     /* TODO: uncomment the next line and add a value which causes Flexbox to automatically fill in extra space on it's left side */
     margin-left: auto;
-    border-right: 1px solid white;
+    border-right: 1px solid lightgray;
 }
 
 header a:hover {
-    background: white;
-    color: purple;
+    background: black;
+    color: lightgray;
 }
 
 .header-background {
-    background: purple;
+    background: rgb(4 35 69);
     /* TODO: define the grid area of this element to take up the entire first row of the .container grid  */
     grid-area: 1 / 1 / 2 / 6
 }
@@ -87,7 +88,7 @@ nav ul {
 
 a {
     display: inline-block;
-    color: white;
+    color: lightgray;
     text-decoration: none;
     font-size: 1.5em;
     padding: 1em;
@@ -107,7 +108,7 @@ nav a {
 
 nav a:hover {
     background: white;
-    color: mediumpurple;
+    color: rgb(4 35 69);
 }
 
 .logo {

@@ -11,7 +11,12 @@ main {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 5px;
-    margin-left: 200px;
+    margin: 0 auto;
+
+}
+
+.item {
+
 }
 
 main div {

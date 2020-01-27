@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+.wrapper {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 5% repeat(3 , 1fr) repeat(4 , 5%);
+    grid-template-columns: 20% 1fr 25%;
+    grid-template-areas:
+            "nav nav nav"
+            "side-nav main-top ad-top"
+            "side-nav main-mid ad-mid"
+            "side-nav main-bottom ad-bottom"
+            "side-nav page-list ."
+            "side-nav footer footer"
+            "side-nav footer footer"
+            "side-nav bottom-footer bottom-footer";
+}

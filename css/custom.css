@@ -9,3 +9,7 @@
 .navbar {
     color:white;
 }
+footer {
+    background: rgb(247 247 247);
+    display: flex;
+}

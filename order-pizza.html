@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,9 @@
         <h1 class="display-4">Welcome to Pizza World!</h1>
     </div>
     <!--End of Jumbotron-->
+
     <h2>Build Your Own Pizza!</h2>
+
     <!--Start of Nav-->
     <ul class="nav nav-tabs" >
         <li class="nav-item">
@@ -69,7 +71,7 @@
     <!--End of Nav-->
 
     <!--Start of Parent Card-->
-    <div class="card" style="width: 100%; margin-bottom: 10px">
+    <div class="card" style="width: 100%; margin-bottom: 30px">
         <nav class="navbar navbar-dark bg-primary">
             Choose Size and Crust
         </nav>
@@ -113,81 +115,116 @@
             </ul>
         </div>
         <!--End Second Card-->
+        <footer>
+            <button type="button" style=" margin:1em ;margin-left: auto;" class="btn btn-primary btn-sm">Next Step ></button>
+        </footer>
 
-        <button type="button" class="btn btn-primary btn-lg" style="width: 25%; margin: 1em ">Large button</button>
 
     </div>
     <!--End of Parent Card-->
     <!--Start of Second Parent Card-->
-    <div class="card" style="width: 100%; margin-bottom: 10px">
+    <div class="card" style="width: 100%; margin-bottom: 30px">
         <nav class="navbar navbar-dark bg-primary">
-            Choose Size and Crust
+            Choose Cheese and Sauce
         </nav>
         <!--Start First Card-->
         <div class="card" style="width: 97%; margin: 1em">
             <div class="card-header">
-                Hand Tossed
+                Cheese
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="tossed-small" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="tossed-small">Small (10")</label>
+                <li class="list-group-item">How Much?</li>
+                <li class="list-group-item"><div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" style="background: white; color: black;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Regular
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Light</a>
+                        <a class="dropdown-item" href="#">Normal</a>
+                        <a class="dropdown-item" href="#">Extra</a>
+                        <a class="dropdown-item" href="#">Double</a>
+                    </div>
                 </div>
-                </li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="tossed-medium" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="tossed-medium">Medium (12")</label>
-                </div>
-                </li>
+
             </ul>
         </div>
         <!--End First Card-->
         <!--Start Second Card-->
         <div class="card" style="width: 97%; margin: 1em">
             <div class="card-header">
-                Crispy Thin
+                Sauce
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="thin-medium" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="thin-medium">Medium (12")</label>
-                </div>
-                </li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="thin-large" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="thin-large">Large (14")</label>
+                <li class="list-group-item">What Type? <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" style="background: white; color: black;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Robust Inspired Tomato Sauce
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Tomato sauce</a>
+                        <a class="dropdown-item" href="#">Marinara sauce</a>
+                        <a class="dropdown-item" href="#">BBQ Sauce</a>
+                        <a class="dropdown-item" href="#">Alfredo Sauce</a>
+                    </div>
+                </div></li>
+
+
+                <li class="list-group-item"> How Much?<div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" style="background: white; color: black;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Regular
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Light</a>
+                        <a class="dropdown-item" href="#">Normal</a>
+                        <a class="dropdown-item" href="#">Extra</a>
+                    </div>
                 </div>
                 </li>
             </ul>
         </div>
         <!--End Second Card-->
-
-        <button type="button" class="btn btn-primary btn-lg" style="width: 25%; margin: 1em ">Large button</button>
+        <footer>
+            <button type="button" style=" margin:1em ;margin-left: auto;" class="btn btn-primary btn-sm">Next Step ></button>
+        </footer>
 
     </div>
     <!--End of Second Parent Card-->
     <!--Start of Third Parent Card-->
-    <div class="card" style="width: 100%; margin-bottom: 10px">
+    <div class="card" style="width: 100%; margin-bottom: 30px">
         <nav class="navbar navbar-dark bg-primary">
-            Choose Size and Crust
+            Choose Toppings
         </nav>
         <!--Start First Card-->
         <div class="card" style="width: 97%; margin: 1em">
             <div class="card-header">
-                Hand Tossed
+                Choose Meats
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="tossed-small" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="tossed-small">Small (10")</label>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Beef
+                    </label>
                 </div>
                 </li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="tossed-medium" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="tossed-medium">Medium (12")</label>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Ham
+                    </label>
+                </div>
+                </li>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Philly Steak
+                    </label>
+                </div>
+                </li>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Bacon
+                    </label>
                 </div>
                 </li>
             </ul>
@@ -196,25 +233,43 @@
         <!--Start Second Card-->
         <div class="card" style="width: 97%; margin: 1em">
             <div class="card-header">
-                Crispy Thin
+                Choose Non-Meats
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="thin-medium" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="thin-medium">Medium (12")</label>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Green-Peppers
+                    </label>
                 </div>
                 </li>
-                <li class="list-group-item"><div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="thin-large" name="defaultExampleRadios">
-                    <label class="custom-control-label" for="thin-large">Large (14")</label>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Mushrooms
+                    </label>
+                </div>
+                </li>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Onions
+                    </label>
+                </div>
+                </li>
+                <li class="list-group-item"><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Jalapeño Peppers
+                    </label>
                 </div>
                 </li>
             </ul>
         </div>
         <!--End Second Card-->
-
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+        <footer>
+            <button type="button" class="btn btn-primary btn-lg" style="width: 20%; margin: 1em ;margin-left: auto; ">Checkout</button>
+        </footer>
 
     </div>
     <!--End of Third Parent Card-->

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions</title>
+</head>
+<body>
+<h1 style="text-align: center">Function Drills</h1>
+
+
+<script>
+    "use strict";
+    (function () {
+
+        function isOdd(x) {
+            return !(x % 2 === 0);
+        }
+
+        function isEven(x) {
+            return x % 2 === 0;
+        }
+
+        function identity(input) {
+            return input;
+        }
+
+        function isFive(x) {
+            return x === 5;
+        }
+
+        function addFive(x) {
+            return x + 5;
+        }
+
+        function isMultipleOfFive(input) {
+            return input % 5 === 0;
+        }
+
+        function isThree(input) {
+            return input === 3;
+        }
+
+        function isMultipleOfThree(input) {
+            return input % 3 === 0;
+        }
+
+        function isMultipleOfFiveAndThree(input) {
+            return input % 5 === 0 && input % 3 === 0;
+        }
+
+        function isMultipleOf(target, n) {
+            return target % n === 0;
+        }
+
+        function isFalse(boolean) {
+            return boolean === false;
+        }
+
+        function isTruthy(input) {
+            return input === true;
+        }
+
+        function isFalsy(input) {
+            return input === true;
+        }
+
+        function isVowel(letter) {
+            return ['a', 'e', 'i', 'o', 'u'].indexOf(letter) !== -1;
+        }
+
+        function isConsonant(letter) {
+            return ['a', 'e', 'i', 'o', 'u'].indexOf(letter) === -1;
+        }
+
+        // function isCapital(letter) {
+        //     return letter.toLowerCase.indexOf(letter) === -1;
+        // }
+
+
+
+    //    Simple Function Drills:
+
+        function returnTwo() {
+            return 2;
+        }
+
+        console.log(returnTwo());
+
+        function returnName() {
+            return "Mitchel";
+        }
+
+        console.log(returnName());
+
+        function addThree(input) {
+            return input + 3;
+        }
+
+        console.log(addThree(5));
+
+        function sayString(input) {
+            return input;
+        }
+
+        console.log(sayString("codeup"));
+
+        function identityy(input) {
+            return input;
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor((Math.random() * max) + min);
+        }
+
+        console.log(getRandomNumber(1, 100));
+
+        function first (str) {
+            return str[0];
+        }
+        function last(input) {
+            return input.slice(-1)[0];
+        }
+
+
+    }) ();
+</script>
+
+</body>
+</html>

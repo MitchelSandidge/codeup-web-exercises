@@ -15,6 +15,7 @@ alert("Awesome! " + favColor + " is my favorite color too!!");
 
 
 
+
 var lengthLM = prompt("How many days do you want to rent The Little Mermaid?");
 
 var lengthBB = prompt("How many days do you want to rent Brother Bear?");

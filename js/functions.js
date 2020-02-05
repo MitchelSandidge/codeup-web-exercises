@@ -31,7 +31,7 @@ var helloMessage =(sayHello("Mitchel"));
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-    var myName = "mitchel"
+    var myName = "mitchel";
     console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -85,7 +85,7 @@ function isTwo(num) {
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-    var mealTotal = prompt("How much was the bill?");
+    var mealTotal = parseFloat(prompt("How much was the bill?"));
     var tipPercentage = prompt("What is the percentage you would like to tip?");
     var tipTotal = calculateTip(tipPercentage, mealTotal);
 

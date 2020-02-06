@@ -228,7 +228,7 @@ function calculateTotal(luckyNumber) {
         alert ("Congrats!  You got a lucky number of 5.  Everything is free!  Your new total is: $" + luckyNumFive);
     }
 }
-// calculateTotal(3);
+calculateTotal(3);
 
 
 
@@ -273,14 +273,5 @@ function calculateTotalPartTwo() {
 }
 
 // calculateTotalPartTwo();
-
-
-
-
-
-
-
-
-
 
 

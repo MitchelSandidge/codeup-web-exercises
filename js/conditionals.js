@@ -16,36 +16,36 @@ console.log("hello world")
  * Can you refactor your code to use functions?
  */
 
-// function getNumber() {
-//     var enterNumberQues = confirm("Would you like to enter a number?");
-//
-//     if (enterNumberQues) {
-//         var num1 = prompt("Enter a number:")
-//     }
-//
-//     if(isNaN(num1)){
-//         alert("The value you entered is not a number.")
-//         getNumber();
-//     } else {
-//         alert("Good Number")
-//     }
-//
-//     if (num1 % 2 === 0) {
-//         alert("The number is even")
-//     } else {
-//         alert("The number is odd.")
-//     }
-//
-//     var numberPlusOneHun = num1 + 100;
-//
-//     alert("The number plus 100 is: " + numberPlusOneHun);
-//
-//     if (num1 > 0) {
-//         alert("The number is positive.")
-//     } else {
-//         alert("The number is negative.")
-//     }
-// }
+function getNumber() {
+    var enterNumberQues = confirm("Would you like to enter a number?");
+
+    if (enterNumberQues) {
+        var num1 = prompt("Enter a number:")
+    }
+
+    if(isNaN(num1)){
+        alert("The value you entered is not a number.");
+        getNumber();
+    } else {
+        alert("Good Number")
+    }
+
+    if (num1 % 2 === 0) {
+        alert("The number is even")
+    } else {
+        alert("The number is odd.")
+    }
+
+    var numberPlusOneHun = parseFloat(num1);
+
+    alert("The number plus 100 is: " + (numberPlusOneHun + 100));
+
+    if (num1 > 0) {
+        alert("The number is positive.")
+    } else {
+        alert("The number is negative.")
+    }
+}
 // getNumber();
 
 /* ########################################################################## */
@@ -68,29 +68,29 @@ console.log("hello world")
  * console.logging the function's return value
  */
 
-// function analyzeColor(col1) {
-//     if (col1 === "blue") {
-//         return "Blue is the color of the sky";
-//     }
-//     else if (col1 === "red") {
-//         return "There is red in the American Flag";
-//     }
-//     else if (col1 === "green"){
-//         return "Grass is green";
-//     }
-//     else if (col1 === "orange") {
-//         return "Oranges are orange"
-//     }
-//     else if (col1 === "yellow") {
-//         return "Flowers are yellow"
-//     }
-//     else if (col1 === "indigo") {
-//         return "Indigo is a cool color"
-//     }
-//     else {
-//         return ("I know nothing about " + col1)
-//     }
-// }
+function analyzeColor(col1) {
+    if (col1 === "blue") {
+        return "Blue is the color of the sky";
+    }
+    else if (col1 === "red") {
+        return "There is red in the American Flag";
+    }
+    else if (col1 === "green"){
+        return "Grass is green";
+    }
+    else if (col1 === "orange") {
+        return "Oranges are orange"
+    }
+    else if (col1 === "yellow") {
+        return "Flowers are yellow"
+    }
+    else if (col1 === "indigo") {
+        return "Indigo is a cool color"
+    }
+    else {
+        return ("I know nothing about " + col1)
+    }
+}
 
 // console.log(analyzeColor("blue"));
 
@@ -151,31 +151,31 @@ function switchColors(col1) {
  */
 
 // var userColor = prompt("Enter a color: ");
-
-function analyzeColor() {
-    if (userColor === "blue") {
-        return "Blue is the color of the sky";
-    }
-    else if (userColor === "red") {
-        return "There is red in the American Flag";
-    }
-    else if (userColor === "green"){
-        return "Grass is green";
-    }
-    else if (userColor === "orange") {
-        return "Oranges are orange"
-    }
-    else if (userColor === "yellow") {
-        return "Flowers are yellow"
-    }
-    else if (userColor === "indigo") {
-        return "Indigo is a cool color"
-    }
-    else {
-        return ("I know nothing about " + userColor)
-    }
-}
-
+//
+// function analyzeColor() {
+//     if (userColor === "blue") {
+//         return "Blue is the color of the sky";
+//     }
+//     else if (userColor === "red") {
+//         return "There is red in the American Flag";
+//     }
+//     else if (userColor === "green"){
+//         return "Grass is green";
+//     }
+//     else if (userColor === "orange") {
+//         return "Oranges are orange"
+//     }
+//     else if (userColor === "yellow") {
+//         return "Flowers are yellow"
+//     }
+//     else if (userColor === "indigo") {
+//         return "Indigo is a cool color"
+//     }
+//     else {
+//         return ("I know nothing about " + userColor)
+//     }
+// }
+//
 // alert(analyzeColor());
 
 /* ########################################################################## */
@@ -228,7 +228,7 @@ function calculateTotal(luckyNumber) {
         alert ("Congrats!  You got a lucky number of 5.  Everything is free!  Your new total is: $" + luckyNumFive);
     }
 }
-calculateTotal(3);
+// calculateTotal(3);
 
 
 

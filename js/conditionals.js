@@ -213,7 +213,6 @@ function calculateTotal(luckyNumber) {
     var luckyNumFour = storeTotal * .5;
     var luckyNumFive = storeTotal - storeTotal;
 
-
     if (luckyNumber === 0) {
         return "Your number was 0, you do not get a discount."
     } else if (luckyNumber === 1) {

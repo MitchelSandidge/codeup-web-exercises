@@ -4,18 +4,18 @@ console.log("hello from for_loops.js");
 
 // var userNumber = 7;
 
-var userNumber = parseFloat(prompt("What your number for the table?"));
+// var userNumber = parseFloat(prompt("What your number for the table?"));
 
-for (var i = 0; i <= 10; i++) {
-    console.log(userNumber + " X " + i + " = " + userNumber * i);
-}
+// for (var i = 0; i <= 10; i++) {
+//     console.log(userNumber + " X " + i + " = " + userNumber * i);
+// }
 
 
 
 //Random number log
 
 // for (var i = 1; i <= 10; i++) {
-//     var randomNum = Math.floor(Math.random() * 200) + 20;
+//     var randomNum = Math.floor(Math.random() * 180) + 20;
 //     console.log("Random number: #" + i);
 //     if (randomNum % 2 === 0) {
 //         console.log(randomNum + " is even.")
@@ -47,6 +47,10 @@ for (var i = 0; i <= 10; i++) {
 //     }else if (i === 9) {
 //         console.log(999999999);
 //     }
+// }
+
+// for (var i = 1; i < 10; i++) {
+//     console.log(i.toString().repeat(i));
 // }
 
 // for (var i = 100; i > 0; i -= 5){

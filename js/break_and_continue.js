@@ -16,3 +16,4 @@ for (var n = 1; n <= 50; n++){
         console.log("Here is an odd number: " + n);
     }
 }
+//this is a comment

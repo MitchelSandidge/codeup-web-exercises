@@ -5,12 +5,12 @@ console.log("hello from while.js");
 // }
 
 
-var i = 2;
-
-while (i < 70000) {
-    console.log(i);
-    i *= 2;
-}
+// var i = 2;
+//
+// while (i < 70000) {
+//     console.log(i);
+//     i *= 2;
+// }
 
 
 //Ice Cream Problem

@@ -3,13 +3,13 @@ console.log("hello from for_loops.js");
 //Multiplication Table
 
 // var userNumber = 7;
-//
-// // var userNumber = prompt("What your number for the table?");
-//
-// for (var i = 0; i <= 10; i++) {
-//     console.log(userNumber + " X " + i + " = " + userNumber * i);
-// }
-//
+
+var userNumber = parseFloat(prompt("What your number for the table?"));
+
+for (var i = 0; i <= 10; i++) {
+    console.log(userNumber + " X " + i + " = " + userNumber * i);
+}
+
 
 
 //Random number log
@@ -49,6 +49,6 @@ console.log("hello from for_loops.js");
 //     }
 // }
 
-for (var i = 100; i > 0; i -= 5){
-    console.log(i);
-}
+// for (var i = 100; i > 0; i -= 5){
+//     console.log(i);
+// }

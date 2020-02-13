@@ -5,7 +5,7 @@ body {
 
 .jumbotron {
     background: #37515F;
-    height: 85vh;
+    height: 40em;
 }
 .jumbotron p {
     font-family: 'Archivo Black', sans-serif;
@@ -114,4 +114,13 @@ body {
 .spacer {
     height: 30em;
     border: 1px solid black;
+}
+
+footer {
+    background-color: #37515F;
+    text-align: center;
+}
+
+footer img {
+    height: 10em;
 }

@@ -34,7 +34,7 @@
 
     console.log(planetsJoin);
 
-    var planetsList = (' <ul> <li>' + planetsArray.join(" <li> ") + ' </ul> ');
+    var planetsList = ('<ul> <li>' + planetsArray.join("</li><li>") + '</li></ul>');
 
     console.log(planetsList);
 

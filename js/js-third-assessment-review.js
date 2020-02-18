@@ -76,7 +76,7 @@ var dogs = [
 
 function getOlder() {
     dogs.forEach (function (dog) {
-        return (dog.age + 1);
+         dog.age += 1;
     })
 }
       getOlder();
@@ -91,6 +91,9 @@ dogs.getAge = function() {
 };
 
 console.log(dogs.getAge());
+
+console.log(dogs);
+
 
 // console.log(dogs);
 //    ```
@@ -119,26 +122,48 @@ console.log(dogs.getAge());
 //
 //     ```js
 //             // Example input
-//             [
-//                  {
-//                      make: 'Volvo',
-//                      color: 'red',
-//                      year: 1996,
-//                      isDirty: true
-//                  },
-//                  {
-//                      make: 'Toyota',
-//                      color: 'black',
-//                      year: 2004,
-//                      isDirty: false
-//                  },
-//                  {
-//                      make: 'Ford',
-//                      color: 'white',
-//                      year: 2007,
-//                      isDirty: true
-//                  }
-//             ]
+
+
+            var cars =  [
+                 {
+                     make: 'Volvo',
+                     color: 'red',
+                     year: 1996,
+                     isDirty: true
+                 },
+                 {
+                     make: 'Toyota',
+                     color: 'black',
+                     year: 2004,
+                     isDirty: false
+                 },
+                 {
+                     make: 'Ford',
+                     color: 'white',
+                     year: 2007,
+                     isDirty: true
+                 }
+            ];
+
+
+            cars.washCars = function () {
+                cars.forEach(function (car) {
+                    car.isDirty = false;
+                })
+            };
+
+            cars.washCars();
+
+console.log(cars);
+
+cars.isWashed = function () {
+    cars.forEach(function (car, i) {
+        console.log("Car number: " + (i + 1) + " is Dirty: " + car.isDirty)
+    })
+};
+console.log(cars.isWashed());
+
+
 //       ```
 //
 //     ```js

@@ -76,7 +76,7 @@ var dogs = [
 
 function getOlder() {
     dogs.forEach (function (dog) {
-        console.log((dog.age + 1));
+        return (dog.age + 1);
     })
 }
       getOlder();

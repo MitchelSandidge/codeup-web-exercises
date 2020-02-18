@@ -11,10 +11,10 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-    var person = {};
-        person.firstName = "Mitchel";
-        person.lastName = "Sandidge";
-
+    var person = {
+        firstName: "Mitchel",
+        lastName: "Sandidge"
+        };
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -157,7 +157,7 @@
         console.log("------------");
         console.log("Book Number: "+ (i + 1));
         console.log("Title: " + book.title);
-        console.log("Author: " + book.author.firstName + " " + book.author.lastName)
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
         console.log("------------");
     });
 

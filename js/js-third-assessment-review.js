@@ -90,9 +90,15 @@ dogs.getAge = function() {
     console.log(dogs[0].age + ". it used to be 7")
 };
 
-console.log(dogs.getAge());
-
-console.log(dogs);
+// dogs.getAge();
+//
+// console.log(dogs);
+//
+// getOlder();
+//
+// dogs.getAge();
+//
+// console.log(dogs);
 
 
 // console.log(dogs);
@@ -152,7 +158,8 @@ console.log(dogs);
                 })
             };
 
-            cars.washCars();
+
+cars.washCars();
 
 console.log(cars);
 
@@ -161,7 +168,7 @@ cars.isWashed = function () {
         console.log("Car number: " + (i + 1) + " is Dirty: " + car.isDirty)
     })
 };
-console.log(cars.isWashed());
+cars.isWashed();
 
 
 //       ```
@@ -193,21 +200,35 @@ console.log(cars.isWashed());
 // 4. Write a function, `adminList()` that takes in an array of user objects and returns a count of all admins based on the isAdmin property. Refactor to return an array of admin-only user emails. Refactor again to return an array of user objects that are admins.
 //     ```js
 //          //Example Input:
-//           [
-//              {
-//                  isAdmin: true,
-//                  email: 'user1@email.com'
-//              },
-//              {
-//                  isAdmin: true,
-//                  email: 'user2@email.com'
-//              },
-//              {
-//                  isAdmin: false,
-//                  email: 'user3@email.com'
-//              }
-//          ];
+        var admin =  [
+             {
+                 isAdmin: true,
+                 email: 'user1@email.com'
+             },
+             {
+                 isAdmin: true,
+                 email: 'user2@email.com'
+             },
+             {
+                 isAdmin: false,
+                 email: 'user3@email.com'
+             }
+         ];
 //     ```
+
+function adminList() {
+    admin.forEach(function (user,i) {
+
+        var finalI = i.arrayLength();
+        if (user.isAdmin) {
+            console.log(finalI);
+        }
+    })
+}
+
+adminList();
+
+
 //
 //     ```js
 //        // Example Output (before refactor): 2

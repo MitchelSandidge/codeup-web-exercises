@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mapbox Exercise!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<!--<script src="js/mapbox-api-lec.js"></script>-->
+
+<!-- Custom JS -->
+<script>
+
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
+        zoom: 10,
+        center: [-87.623149, 41.88492]
+    });
+
+
+
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+
+    geocode("Chicago", mapboxToken).then(function (result) {
+        map.flyTo({center: result, zoom: 9.7})
+    });
+
+
+
+
+    // Giordanos marker
+    // var markerOptions = {
+    //     color: "#ff0000",
+    // };
+    //
+    // var marker = new mapboxgl.Marker(markerOptions)
+    //     .setLngLat([-87.623149, 41.88392])
+    //     .addTo(map);
+    //
+    //
+    //
+    //
+    // //Popup for Pizza
+    // var GioPopup = new mapboxgl.Popup()
+    //     .setHTML("<h3>Giordanos Pizza</h3>")
+    //     .addTo(map);
+    //
+    // marker.setPopup(GioPopup).togglePopup();
+
+
+    var restaurants = [
+        {
+            name: "<h3>Giordanos Pizza</h3>" ,
+            address: [-87.623149, 41.88392],
+            markerColor: "#ff0000",
+            number: "<br><p>Phone: (312) 616-1200</p>",
+        },
+        {
+            name: "<h3>Portillos Hot Dogs</h3>",
+            address: [-88.080578, 41.902237],
+            markerColor: "#800080",
+            number: "<br><p>(630) 690-9380</p>",
+        },
+        {
+            name: "<h3>Santa Fe's</h3>",
+            address: [-88.066819, 41.875141],
+            markerColor: "#e7a595",
+            number: "<br><p>Phone: (630) 790-3311</p>",
+        }
+    ];
+
+    function placeRestaurants(object) {
+        object.forEach(function (restaurant) {
+
+            var markerOptions = {
+                color: restaurant.markerColor,
+            };
+            var marker = new mapboxgl.Marker(markerOptions)
+                .setLngLat(restaurant.address)
+                .addTo(map);
+
+
+
+
+            //Popup for Pizza
+            var GioPopup = new mapboxgl.Popup()
+                .setHTML(restaurant.name + restaurant.number)
+                .addTo(map);
+
+            marker.setPopup(GioPopup).togglePopup();
+        });
+
+    }
+
+    placeRestaurants(restaurants);
+
+    // function obtainGold(array) {
+    //     var bucket = [];
+    //
+    //     array.forEach(function (deer) {
+    //         if (deer.isGold === true) {
+    //             bucket.push(deer)
+    //         }
+    //     });
+    //
+    //
+    //
+    //     return bucket;
+    // }
+    //
+    // console.log(obtainGold(reindeerList));
+
+
+</script>
+
+</body>
+</html>

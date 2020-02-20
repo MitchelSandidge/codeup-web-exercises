@@ -58,10 +58,10 @@ var marker = new mapboxgl.Marker(markerOptions)
 
 
 
-// var popup = new mapboxgl.Popup()
-//     .setLngLat([-98.4916, 29.4260])
-//     .setHTML("<h6>Codeup ROKSK!</h6>")
-//     .addTo(map);
+var popup = new mapboxgl.Popup()
+    .setLngLat([-98.4916, 29.4260])
+    .setHTML("<h6>Codeup ROKSK!</h6>")
+    .addTo(map);
 
 var alamoPopup = new mapboxgl.Popup()
     .setHTML("<h1>Remember le alemo</h1>")

@@ -159,16 +159,16 @@ dogs.getAge = function() {
             };
 
 
-cars.washCars();
-
-console.log(cars);
-
-cars.isWashed = function () {
-    cars.forEach(function (car, i) {
-        console.log("Car number: " + (i + 1) + " is Dirty: " + car.isDirty)
-    })
-};
-cars.isWashed();
+// cars.washCars();
+//
+// console.log(cars);
+//
+// cars.isWashed = function () {
+//     cars.forEach(function (car, i) {
+//         console.log("Car number: " + (i + 1) + " is Dirty: " + car.isDirty)
+//     })
+// };
+// cars.isWashed();
 
 
 //       ```
@@ -217,16 +217,16 @@ cars.isWashed();
 //     ```
 
 function adminList() {
-    admin.forEach(function (user,i) {
+    admin.forEach(function (user) {
 
-        var finalI = i.arrayLength();
+        var finalI = (user.isAdmin).length;
         if (user.isAdmin) {
-            console.log(finalI);
+            console.log(user);
         }
     })
 }
 
-adminList();
+// adminList();
 
 
 //
@@ -260,21 +260,38 @@ adminList();
 //     ```js
 //         //     Example Input:
 //
-//          var breads  = [
-//              "white",
-//              "wheat",
-//              "rhy",
-//              "white"
-//          ];
-//
-//          var fillings = [
-//              "pb&j",
-//              "ham",
-//              "cheese steak",
-//              "tuna"
-//          ];
+         var breads  = [
+             "white",
+             "wheat",
+             "rhy",
+             "white"
+         ];
+
+         var fillings = [
+             "pb&j",
+             "ham",
+             "cheese steak",
+             "tuna"
+         ];
 //
 //          makeSandwichObjects(breads, fillings) // example call to the function
+
+function makeSancdichObjects() {
+    var bucket = [];
+    // bucket.push(breads.toString());
+    // bucket.push(fillings.toString());
+
+    breads.forEach(function (bread) {
+        bucket.push(bread.toString());
+        });
+    fillings.forEach(function (filling) {
+        bucket.push(filling.toString());
+    });
+    console.log(bucket);
+}
+(makeSancdichObjects());
+
+
 //     ```
 //     ```js
 //         // Example Output:

@@ -31,64 +31,94 @@ function filterNumbers(array) {
 }
 
 // console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
-//
+//if function takes in an array, ittrate through each object using a loop
+
+function filterNumbers2(inputArray) {
+    var bucket = [];
+    for (var i = 0; i < inputArray.length; i++) {
+        if (typeof inputArray[i] === "number") {
+            bucket.push(inputArray[i])
+        }
+    }
+    return bucket.sort(function (a, b) {
+        return a - b;
+    });
+}
+
+// console.log(filterNumbers2());
+// console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
 // 2. Write a function, `getOlder()` that takes in array of dog objects and increases the value of the age properties by 1.
 //
 //     ```js
 //     //Example Input:
 //
-//       var dogs = [
-//         {
-//             name: "Chompers",
-//             breed: "Pug",
-//             age: 7
-//         },
-//           {
-//               name: "Freddy",
-//              breed: "Lab",
-//              age: 4
-//          },
-//          {
-//              name: "Mr. Pig",
-//              breed: "Mastif",
-//              age: 10
-//          }
-//
-//          ];
+      var dogs = [
+        {
+            name: "Chompers",
+            breed: "Pug",
+            age: 7
+        },
+          {
+              name: "Freddy",
+             breed: "Lab",
+             age: 4
+         },
+         {
+             name: "Mr. Pig",
+             breed: "Mastif",
+             age: 10
+         }
 
-var dogs = [
-    {
-        name: "Chompers",
-        breed: "Pug",
-        age: 7
-    },
-    {
-        name: "Freddy",
-        breed: "Lab",
-        age: 4
-    },
-    {
-        name: "Mr. Pig",
-        breed: "Mastif",
-        age: 10
-    }
-];
+         ];
 
-function getOlder() {
-    dogs.forEach (function (dog) {
-         dog.age += 1;
-    })
+// 1. Write a function -> getOlder(dogs)
+// 2. since we are taking in an array -> loop through each dogs -> dog.age += 1
+// 3. return dogs
+
+
+// var dogs = [
+//     {
+//         name: "Chompers",
+//         breed: "Pug",
+//         age: 7
+//     },
+//     {
+//         name: "Freddy",
+//         breed: "Lab",
+//         age: 4
+//     },
+//     {
+//         name: "Mr. Pig",
+//         breed: "Mastif",
+//         age: 10
+//     }
+// ];
+
+function getOlder(dogs) {
+    dogs.forEach(function (dog) {
+        dog.age += 1;
+    });
+    return dogs;
 }
-      getOlder();
+
+// console.log(getOlder(dogs));
+
+
+// function getOlder() {
+//     dogs.forEach (function (dog) {
+//          dog.age += 1;
+//     })
+// }
+//       getOlder();
 
 // person.sayHello = function () {
 //     console.log(person.firstName + " " + person.lastName + " says hello on this fine day.")
 // };
 
 
-dogs.getAge = function() {
-    console.log(dogs[0].age + ". it used to be 7")
-};
+// dogs.getAge = function() {
+//     console.log(dogs[0].age + ". it used to be 7")
+// };
 
 // dogs.getAge();
 //
@@ -152,11 +182,23 @@ dogs.getAge = function() {
             ];
 
 
-            cars.washCars = function () {
-                cars.forEach(function (car) {
-                    car.isDirty = false;
-                })
-            };
+            // cars.washCars = function () {
+            //     cars.forEach(function (car) {
+            //         car.isDirty = false;
+            //     });
+            //     return cars;
+            // };
+
+            // cars.washCars(cars);
+
+        function washCars(cars) {
+            cars.forEach(function (car) {
+                car.isDirty = false;
+            });
+            return cars
+        }
+
+// console.log(washCars(cars));
 
 
 // cars.washCars();
@@ -215,16 +257,59 @@ dogs.getAge = function() {
              }
          ];
 //     ```
+// 1. Write a function called adminList(users)
+// 2. var adminCount = 0
+// 3. for each user -> user.isAdmin -> adminCount =+ 1
+// 4. return adminCount
 
-function adminList() {
-    admin.forEach(function (user) {
 
-        var finalI = (user.isAdmin).length;
-        if (user.isAdmin) {
-            console.log(user);
+// Redone
+// function adminList(users) {
+//     var adminCount = 0;
+//
+//     users.forEach(function (user) {
+//         if(user.isAdmin) {
+//             adminCount += 1
+//         }
+//     });
+//     return adminCount;
+// }
+
+// .2 redone
+// function adminList(users) {
+//     var bucket = [];
+//
+//     users.forEach(function (user) {
+//         if(user.isAdmin){
+//             bucket.push(user.email);
+//         }
+//     })
+//     return bucket;
+// }
+
+// .3 Redone
+function adminList(users) {
+    var bucket = [];
+
+    users.forEach(function (user) {
+        if(user.isAdmin){
+            bucket.push(user);
         }
-    })
+    });
+    return bucket;
 }
+// console.log(adminList(admin));
+
+
+// function adminList() {
+//     admin.forEach(function (user) {
+//
+//         var finalI = (user.isAdmin).length;
+//         if (user.isAdmin) {
+//             console.log(user);
+//         }
+//     })
+// }
 
 // adminList();
 
@@ -276,20 +361,47 @@ function adminList() {
 //
 //          makeSandwichObjects(breads, fillings) // example call to the function
 
-function makeSancdichObjects() {
-    var bucket = [];
-    // bucket.push(breads.toString());
-    // bucket.push(fillings.toString());
+// Redone
+// 1. Write a function makeSandwichObjects(breads,fillings)
+// 2. var bucket = [];
+// 3. we have to loop -> for(var i = 0; i < breads.length; i++)
+// 4. we need to create our sandwich object
+// 5. bucket.push(sandwichObject)
+// 6. return bucket
 
-    breads.forEach(function (bread) {
-        bucket.push(bread.toString());
-        });
-    fillings.forEach(function (filling) {
-        bucket.push(filling.toString());
-    });
-    console.log(bucket);
+function makeSandwichObjects(breads, fillings) {
+    var bucket = [];
+
+    for(var i = 0; i < breads.length; i++) {
+
+        var sandwichObject = {
+            bread: breads[i],
+            filling: fillings[i]
+        }
+
+     bucket.push(sandwichObject);
+    }
+    return bucket;
 }
-(makeSancdichObjects());
+
+console.log(makeSandwichObjects(breads, fillings));
+
+
+// MY CODE:
+// function makeSancdichObjects() {
+//     var bucket = [];
+//     // bucket.push(breads.toString());
+//     // bucket.push(fillings.toString());
+//
+//     breads.forEach(function (bread) {
+//         bucket.push(bread.toString());
+//         });
+//     fillings.forEach(function (filling) {
+//         bucket.push(filling.toString());
+//     });
+//     console.log(bucket);
+// }
+// (makeSancdichObjects());
 
 
 //     ```
@@ -315,3 +427,21 @@ function makeSancdichObjects() {
 //          ]
 //
 //     ```
+
+
+// TODO Write a function named keepYellow that accepts an array of strings and returns an array with all the strings that are equal to "yellow"
+
+
+// 1. function keepYellow(colors)
+// 2.
+
+function keepYellow(colors) {
+    var bucket = [];
+    for (var i = 0; i < colors.length; i++) {
+        if (colors[i] === "yellow") {
+            bucket.push(colors[i])
+        }
+    }
+    return bucket;
+}
+console.log(keepYellow(["yellow", "red", "blue", "yellow", "black", "brown", "yellow"]));

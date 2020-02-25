@@ -3,6 +3,33 @@
 // ##Basic Review
 
 console.log("Hello from js 3rd");
+
+function capitalizeName(str) {
+    var splitStr = str.split(' ');
+    var firstAndLast = {
+        firstName: splitStr[0],
+        lastName: splitStr[1]
+    };
+    var firstCap = firstAndLast.firstName.charAt(0).toUpperCase() + str.slice(1);
+    var lastCap = firstAndLast.lastName.charAt(0).toUpperCase() + str.slice(1);
+
+    return (firstCap +" " + lastCap);
+}
+
+
+
+function capitalizeAllNames(array) {
+    var bucket = [];
+    var longStr = array.join(' ');
+    var str = longStr.split(' ');
+    for (var i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+        bucket.push(str[i])
+    }
+    return bucket;
+}
+// console.log(capitalizeAllNames(["saab", "volvo", "bMW"]));
+
 //
 // 1. What is an array in Javascript?
 //
@@ -25,10 +52,23 @@ console.log("Hello from js 3rd");
 //     ```js
 
 //     ```
-
 function filterNumbers(array) {
-    return parseFloat(array.sort());
+    var bucket = [];
+    for (var i = 0; i < array.length; i++) {
+        if (typeof array[i] === "number") {
+            bucket.push(array[i]);
+        }
+    }
+    return bucket.sort(function (a, b) {
+        return a - b;
+    });
 }
+
+
+
+// function filterNumbers(array) {
+//     return parseFloat(array.sort());
+// }
 
 // console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
 //if function takes in an array, ittrate through each object using a loop
@@ -74,6 +114,15 @@ function filterNumbers2(inputArray) {
 // 1. Write a function -> getOlder(dogs)
 // 2. since we are taking in an array -> loop through each dogs -> dog.age += 1
 // 3. return dogs
+
+function getOlder(dogs) {
+    dogs.forEach(function (dog) {
+        dog.age += 1
+    });
+    return dogs
+}
+
+// console.log(getOlder(dogs));
 
 
 // var dogs = [

@@ -84,7 +84,7 @@
             audio.play();
             keyArray = [];
         } else if (keyArray.toString().indexOf(squareCode) >=0 ) {
-            $('#konami-div').css('background-color', 'green');
+            $('#konami-div').html('<img src="img/star-wars.jpg">');
             keyArray = [];
         } else if (keyArray.toString().indexOf(konamiCode) >=0 ) {
             $('#konami-div').html('<img src="img/game-over.png">');

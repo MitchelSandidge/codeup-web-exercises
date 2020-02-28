@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <style>
+        body {
+            background: #221B1B;
+            font-family: 'Press Start 2P', 'sans-serif' ;
+        }
+        #konami-div {
+            text-align: center;
+            height: 100px;
+        }
+        #pacman {
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="pacman">
+    <img src="img/pac-man-ghost.png">
+    <h1>Game Over Games</h1>
+    <p>Enter the correct code to play your game.</p>
+</div>
+
+<div id="konami-div">
+
+</div>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+    //
+    // var konamiCode = ["32, 77"];
+    //
+    //
+    //
+    // $('body').keyup(function (event) {
+    //     if (event.keyCode === konamiCode) {
+    //         $('body').css('background-color', 'green')
+    //     }
+    //
+    // })
+
+
+
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        65: 'a',
+        66: 'b'
+    };
+
+    // Konami Code sequence
+    var dogCode = 'ArrowUp,ArrowDown,a,b';
+    var squareCode = 'ArrowLeft,ArrowUp,ArrowRight,ArrowDown';
+    var konamiCode = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a';
+    var marioCode = 'm,a,r,i,o';
+
+
+
+    var keyArray = [];
+
+    $(document).keydown(function (event) {
+
+        keyArray.push(event.key);
+
+        if (keyArray.toString().indexOf(dogCode) >= 0){
+             $('#konami-div').html('<img src="img/cute-dog-transparent-background.png" alt="dawg">');
+            var audio = new Audio('audio/Jump-SoundBible.com-1007297584.mp3');
+            audio.play();
+            keyArray = [];
+        } else if (keyArray.toString().indexOf(squareCode) >=0 ) {
+            $('#konami-div').css('background-color', 'green');
+            keyArray = [];
+        } else if (keyArray.toString().indexOf(konamiCode) >=0 ) {
+            $('#konami-div').html('<img src="img/game-over.png">');
+            keyArray = [];
+        } else if (keyArray.toString().indexOf(marioCode) >=0 ) {
+            $('#konami-div').html('<img src="img/supermario.jpg">');
+            keyArray = [];
+        }
+    });
+
+
+
+
+
+
+
+
+    // a variable to remember the 'position' the user has reached so far.
+    // var keyCodePosition = 0;
+    //
+    // // add keydown event listener
+    // $(document).keydown( function(e) {
+    //     // get the value of the key code from the key map
+    //     var key = allowedKeys[e.keyCode];
+    //     // get the value of the required key from the konami code
+    //     var requiredKey = konamiCode[keyCodePosition];
+    //
+    //     // compare the key with the required key
+    //     if (key == requiredKey) {
+    //
+    //         // move to the next key in the konami code sequence
+    //         keyCodePosition++;
+    //
+    //         // if the last key is reached, activate cheats
+    //         if (keyCodePosition == konamiCode.length) {
+    //             $('#konami-div').html('<img src="img/cute-dog-transparent-background.png" alt="dawg">');
+    //             keyCodePosition = 0;
+    //         }
+    //     } else if ()
+    //
+    //
+    //     else {
+    //         keyCodePosition = 0;
+    //     }
+    // });
+
+
+
+</script>
+</body>
+</html>

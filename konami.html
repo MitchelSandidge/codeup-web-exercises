@@ -93,12 +93,18 @@
             keyArray = [];
         } else if (keyArray.toString().indexOf(marioCode) >=0 ) {
             $('#konami-div').html('<img src="img/supermario.jpg">');
+            var audio = new Audio('audio/mario-solongbowser.wav');
+            audio.play();
             keyArray = [];
         } else if (keyArray.toString().indexOf(pacManCode) >=0 ) {
             $('#konami-div').html('<img src="img/pacman-retro-game-online.jpg">');
+            var audio = new Audio('audio/pacman-sound.zip');
+            audio.play();
             keyArray = [];
         } else if (keyArray.toString().indexOf(froggerCode) >=0 ) {
             $('#konami-div').html('<img src="img/frogger_remake_02.jpg">');
+            var audio = new Audio('audio/frogger-theme.mp3');
+            audio.play();
             keyArray = [];
         }
     });

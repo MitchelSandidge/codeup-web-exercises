@@ -69,6 +69,8 @@
     var squareCode = 'ArrowLeft,ArrowUp,ArrowRight,ArrowDown';
     var konamiCode = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a';
     var marioCode = 'm,a,r,i,o';
+    var pacManCode = 'p,a,c,m,a,n';
+    var froggerCode = 'f,r,o,g,g,e,r';
 
 
 
@@ -91,6 +93,12 @@
             keyArray = [];
         } else if (keyArray.toString().indexOf(marioCode) >=0 ) {
             $('#konami-div').html('<img src="img/supermario.jpg">');
+            keyArray = [];
+        } else if (keyArray.toString().indexOf(pacManCode) >=0 ) {
+            $('#konami-div').html('<img src="img/pacman-retro-game-online.jpg">');
+            keyArray = [];
+        } else if (keyArray.toString().indexOf(froggerCode) >=0 ) {
+            $('#konami-div').html('<img src="img/frogger_remake_02.jpg">');
             keyArray = [];
         }
     });

@@ -71,6 +71,7 @@
     var marioCode = 'm,a,r,i,o';
     var pacManCode = 'p,a,c,m,a,n';
     var froggerCode = 'f,r,o,g,g,e,r';
+    var donkeyKongCode = 'd,k';
 
 
 
@@ -106,7 +107,11 @@
             var audio = new Audio('audio/frogger-theme.mp3');
             audio.play();
             keyArray = [];
+        } else if (keyArray.toString().indexOf(donkeyKongCode) >=0 ) {
+            $('#konami-div').html('<img src="img/donkeyKong.jpg">');
+            keyArray = [];
         }
+
     });
 
 

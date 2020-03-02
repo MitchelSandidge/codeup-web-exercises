@@ -10,6 +10,13 @@
         .highlight {
             background: lightyellow;
         }
+        .bold {
+            font-weight: bold;
+        }
+        .blue {
+            color: #005eb5;
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -41,6 +48,33 @@
     <dd> Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped miles.</dd>
 </dl>
 
+<h3>Yellowstone National Park</h3>
+<ul>
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+</ul>
+
+<h3>Grand Canyon</h3>
+<ul>
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+</ul>
+
+<h3>Yosemite National Park</h3>
+<ul>
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+
+<button id="button2">Click for styling</button>
+
 
 
 <script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
@@ -61,11 +95,25 @@
         // $('dl dd').toggleClass('invisible');
     });
 
-    $('button').on('click', function (e) {
+    $('#button').on('click', function (e) {
         e.preventDefault();
         $('dl dd').toggleClass('invisible');
 
     });
+
+    $('#button2').click(function () {
+        $('ul').each(function () {
+            $(this).children().last().toggleClass('highlight')
+        })
+    });
+
+    $('h3').click(function () {
+        $(this).next().toggleClass('bold');
+    });
+
+    $('li').click(function () {
+        $(this).parent().children().first().toggleClass('blue')
+    })
 
 
 

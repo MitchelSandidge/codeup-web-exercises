@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nat Parks</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        .highlight {
+            background: lightyellow;
+        }
+
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">Facts about National Parks</h1>
+
+<button id="button"></button>
+
+<dl>
+    <dt> 1: Yellowstone</dt>
+    <dd> Created in 1872, Yellowstone was the first Nat Park.</dd>
+    <dt> 2: The Great Smoky Mountains National Park</dt>
+    <dd> The most visited national park in the United States.</dd>
+    <dt> 3: Alaska’s Wrangell-St. Elias National Park</dt>
+    <dd> At 13.2 million acres, this is the biggest Park in the US.</dd>
+    <dt> 4: California</dt>
+    <dd> California has the most Nat parks of any state with nine.</dd>
+    <dt> 5: Death Valley National Park</dt>
+    <dd> Death Valley has the distinction of being the hottest, driest and lowest place in the United States.</dd>
+    <dt> 6: Yosemite National Park </dt>
+    <dd> Three of the 10 highest waterfalls in the world are located in Yosemite National Park in California.</dd>
+    <dt> 7: Grand Canyon National Park </dt>
+    <dd> The Grand Canyon, in Grand Canyon National Park in Arizona, is known as one of the Seven Natural Wonders of the World.</dd>
+    <dt> 8:  Hot Springs National Park</dt>
+    <dd> The smallest national park is Hot Springs National Park in Arkansas, coming in at about 5,500 acres.</dd>
+    <dt> 9: Alaska Range of Denali National Park</dt>
+    <dd> Mount McKinley in the Alaska Range of Denali National Park is the highest point in the national parks at 20,302 feet.</dd>
+    <dt> 10: Mammoth Cave National Park</dt>
+    <dd> Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped miles.</dd>
+</dl>
+
+
+
+<script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+
+    $('#button').html('Click to show facts');
+
+    $('dl dd').addClass('invisible');
+
+    // $('dl dt').on('click', function () {
+    //     $(this).toggleClass('highlight');
+    // });
+
+    $('dl dt').click(function () {
+        $(this).toggleClass('highlight');
+
+        // $('dl dd').toggleClass('invisible');
+    });
+
+    $('button').on('click', function (e) {
+        e.preventDefault();
+        $('dl dd').toggleClass('invisible');
+
+    });
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

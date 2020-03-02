@@ -17,6 +17,38 @@
             color: #005eb5;
             font-weight: bold;
         }
+        #container {
+            display: flex;
+            /*align-content: center;*/
+            justify-content: center;
+        }
+        #left-div {
+            border: 10px solid lightcoral;
+            margin: 5px;
+        }
+        #mid-div {
+            border: 10px solid lightcoral;
+            margin: 5px;
+        }
+        #right-div {
+            border: 10px solid lightcoral;
+            margin: 5px;
+        }
+        img {
+            width: 25em;
+            height: 20em;
+            margin-bottom: -5px;
+        }
+        #button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        #bonus-container {
+            background: #F9EFD6;
+        }
+        #spacer {
+            height: 300px;
+        }
 
     </style>
 </head>
@@ -75,6 +107,23 @@
 
 <button id="button2">Click for styling</button>
 
+<div id="bonus-container">
+    <h1 style="text-align: center">Bonus Exercise</h1>
+
+    <div id="container">
+        <div id="left-div"></div>
+        <div id="mid-div"></div>
+        <div id="right-div"></div>
+    </div>
+
+    <div id="button-container">
+        <div id="left-but"><button>Swap</button></div>
+        <div id="mid-but"><button>Swap</button></div>
+        <div id="right-but"><button>Swap</button></div>
+    </div>
+    <div id="spacer"></div>
+</div>
+
 
 
 <script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
@@ -113,9 +162,42 @@
 
     $('li').click(function () {
         $(this).parent().children().first().toggleClass('blue')
-    })
+    });
 
 
+
+    //BONUS
+
+    var left = '<img src="img/fish-background.jpg">';
+    var mid = '<img src="img/pink-clouds.jpg">';
+    var right = '<img src="img/deer-wallpaper.jpg">';
+
+    $('#left-div').html(left);
+    $('#mid-div').html(mid);
+    $('#right-div').html(right);
+
+    // b = [a, a = b][0];
+
+    $('#left-but').click(function () {
+        $('#left-div').html(mid);
+        $('#mid-div').html(left);
+        mid = [left, left = mid][0];
+        // var mid = left;
+    });
+
+    $('#right-but').click(function () {
+        $('#right-div').html(mid);
+        $('#mid-div').html(right);
+        mid = [right, right = mid][0];
+        // var mid = left;
+    });
+
+    $('#mid-but').click(function () {
+        $('#mid-div').html(right);
+        $('#right-div').html(mid);
+        right = [mid, mid = right][0];
+        // var mid = left;
+    });
 
 
 

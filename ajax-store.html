@@ -2,22 +2,100 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background: white;
+        }
+        #head-logo img {
+            width: 160px;
+            height: 100px;
+        }
+        nav {
+            background: #C91919;
+        }
+        #jumbo {
+            padding: 0;
+            background: #A0A0A0;
+        }
+        #jumbo img {
+            width: 90%;
+            height: auto;
+        }
+        #jumbo-img {
+            width: auto;
+            height: auto;
+            padding: 20px;
+        }
+        #products {
+            width: 90%;
+            margin: auto;
+            border: 1px darkgray solid;
+        }
+
+
+    </style>
+
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<!-------Navbar------->
+<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">
+    <a id="head-logo" class="navbar-brand" href="#"><img src="img/telstra_logo_white.png"></a>
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" style="color: white" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" style="color: white" href="#">Features</a>
+            <a class="nav-item nav-link" style="color: white" href="#">Pricing</a>
+        </div>
+    </div>
+</nav>
 
-<table id="products">
-    <thead>
-        <tr>
-            <th id="title">Title</th>
-            <th id="quantity">Quantity</th>
-            <th id="price">Price</th>
-            <th id="categories">Categories</th>
-        </tr>
+
+<!-------Jumbotron------->
+<div id="jumbo" class="jumbotron jumbotron-fluid d-flex justify-content-center text-center">
+    <img class="col-sm-none col-md-block" id="jumbo-img" src="img/person-using-dewalt-cordless-impact-driver-on-brown-board-1249611.jpg" alt="drill">
+
+    <div class="container" id="jumbo-text">
+        <img src="img/telstra_logo_white.png" alt="">
+        <h3>Telstra Tools and Hardware</h3>
+        <p class="lead">Quality tools and equipment for every job you have.</p>
+    </div>
+</div>
+
+
+<!-------Table------->
+<table id="products" class="table">
+    <thead style="background: #C91919">
+    <tr>
+        <th id="title" style="color: white" scope="col">Tool</th>
+        <th id="quantity" style="color: white" scope="col">Quantity</th>
+        <th id="price" style="color: white" scope="col">Price</th>
+        <th id="categories" style="color: white" scope="col">Categories</th>
+    </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+
+
+<!--<table id="products">-->
+<!--    <thead>-->
+<!--        <tr>-->
+<!--            <th id="title">Title</th>-->
+<!--            <th id="quantity">Quantity</th>-->
+<!--            <th id="price">Price</th>-->
+<!--            <th id="categories">Categories</th>-->
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody id="insertProducts"></tbody>-->
+<!--</table>-->
 
 <button id="refresh">Refresh</button>
 

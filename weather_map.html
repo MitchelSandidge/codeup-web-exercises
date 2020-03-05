@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        #navbar {
+            background-color: #37515F;
+        }
+        #card-container {
+            display: flex;
+            justify-content: center;
+        }
+        #location {
+            margin-left: 30%;
+        }
+        .jumbotron {
+            background-image: url("img/two-people-on-mountain-cliff-1647962.jpg");
+            /*object-fit: contain;*/
+            height: 100vh;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-------Navbar------->
+<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">
+    <a id="head-logo" class="navbar-brand" href="#"><h1 style="color: white">Weather Project</h1></a>
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" style="color: white" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" style="color: white" href="#">Features</a>
+            <a class="nav-item nav-link" style="color: white" href="#posts">Map</a>
+        </div>
+    </div>
+</nav>
+
+<!-------Jumbotron------->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Weather</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+</div>
+
+<!-------Cards------->
+<div id="location"></div>
+<div id="card-container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <div id="today"></div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <div id="tomorrow"></div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <div id="next-tomorrow"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+
+    $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4238889,-98.4933333").done(function (data) {
+        console.log(data);
+
+    });
+
+    //Currently
+    $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4238889,-98.4933333").done(function (data) {
+        $(data).each(function (index, item) {
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            $('#today').append(
+                '<h1>Today: </h1>' +
+                '<h3>' + item.currently.summary + '</h3>' +
+                '   <p>The current day is: ' + days[new Date(item.currently.time * 1000).getDay()] + '</p>'
+            );
+            console.log(new Date(item.currently.time * 1000));
+
+        });
+        //Tomorrow Card
+        $('#tomorrow').append(
+            '<h1>Tomorrow: </h1>' +
+            '<h3>' + data.daily.data[1].summary + '</h3>'
+        );
+        // Next Tomorrow Card
+        $('#next-tomorrow').append(
+            '<h1>Day After Tomorrow: </h1>' +
+            '<h3>' + data.daily.data[2].summary + '</h3>'
+        );
+        //Location Card
+        $('#location').append(
+            '<h1>San Antonio</h1>'
+        )
+    });
+
+
+
+        // console.log(data.currently.summary);
+</script>
+
+</body>
+</html>

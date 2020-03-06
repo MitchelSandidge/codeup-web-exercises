@@ -5,6 +5,8 @@
     <title>Weather</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
     <style>
         body {
             font-family: 'Barlow', sans-serif;
@@ -16,7 +18,7 @@
         #card-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 300px;
+            margin-bottom: 30px;
 
         }
         #location {
@@ -33,12 +35,23 @@
             padding: 0;
             box-shadow: 0 0 10px black;
         }
+        .card {
+            margin: 8px;
+        }
         .card-body {
             background-color: #37515F;
+            box-shadow: 0 0 6px black;
         }
         .card-body:hover {
-            box-shadow: 0 0 10px black;
+            box-shadow: 0 0 20px black;
         }
+
+        @media only screen and (min-width: 992px) {
+            #today-card {
+                display: none;
+            }
+        }
+
         #jumbo-text.container.row {
             margin-left: 60px;
             /*display: flex;*/
@@ -75,6 +88,9 @@
             color: white;
             text-shadow: 0 0 5px darkgray;
         }
+        #today {
+            color: white;
+        }
         #tomorrow {
             color: white;
         }
@@ -87,24 +103,43 @@
         #next-tomorrow h1 {
             font-size: 3em;
         }
+        #input-container {
+            margin-bottom: 200px;
+        }
+        #map {
+            width: auto;
+            height: 400px;
+            margin: 15px;
+            box-shadow: 0 0 10px black;
+        }
+
+        .marker {
+            background-image: url('img/pac-man-ghost.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
 
 <!-------Navbar------->
-<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">
-    <a id="head-logo" class="navbar-brand" href="#"><h1 style="color: white">Weather Project</h1></a>
-    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" style="color: white" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" style="color: white" href="#">Features</a>
-            <a class="nav-item nav-link" style="color: white" href="#posts">Map</a>
-        </div>
-    </div>
-</nav>
+<!--<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">-->
+<!--    <a id="head-logo" class="navbar-brand" href="#"><h1 style="color: white">Weather Project</h1></a>-->
+<!--    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
+<!--        <div class="navbar-nav">-->
+<!--            <a class="nav-item nav-link active" style="color: white" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--            <a class="nav-item nav-link" style="color: white" href="#">Features</a>-->
+<!--            <a class="nav-item nav-link" style="color: white" href="#posts">Map</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 <!-------Jumbotron------->
 <div class="jumbotron jumbotron-fluid">
@@ -126,6 +161,11 @@
 <!-------Cards------->
 <div id="card-container">
 
+    <div class="card" id="today-card">
+        <div class="card-body">
+            <div id="today"></div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <div id="tomorrow"></div>
@@ -138,7 +178,16 @@
     </div>
 </div>
 
+<!-------Map------->
+<div id="map"></div>
 
+
+<!-------Lat & Lon Inputs------->
+<div id="input-container"></div>
+
+
+<!-------Script Sources------->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 <script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
@@ -146,53 +195,24 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
 
+    // Default San Antonio Coordinates
+    var latLon = "/29.4104,-98.6326";
 
     //Currently
-    $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/42.3601,-71.0589").done(function (data) {
+    $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + latLon).done(function (data) {
 
         console.log(data);
 
         //Today Time
         var utcTime = data.currently.time;
-        console.log(utcTime);
-
-        var dateObjectM = new Date(1551736889 * 1000);
-        console.log(dateObjectM.toString());
-
-
-
 
         var dateObject = new Date(utcTime * 1000).toLocaleString("en-US", {timeZone: data.timezone});
-        console.log(dateObject);
 
+        var newTime = dateObject.split(" ")[1];
 
+        var regTime = newTime.split(":")[0] + ":" + newTime.split(":")[1];
 
-
-
-        var time = new Date(data.currently.time * 1000).getHours() + ":" + new Date(data.currently.time * 1000).getMinutes() + ":" + new Date(data.currently.time * 1000).getSeconds();
-
-        time = time.split(':'); // convert to array
-
-        // fetch
-        var hours = Number(time[0]);
-        var minutes = Number(time[1]);
-        var seconds = Number(time[2]);
-
-        // calculate
-        var timeValue;
-
-        if (hours > 0 && hours <= 12) {
-            timeValue= "" + hours;
-        } else if (hours > 12) {
-            timeValue= "" + (hours - 12);
-        } else if (hours == 0) {
-            timeValue= "12";
-        }
-        timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
-        // timeValue += (seconds < 10) ? ":0" + seconds : ":" + seconds;  // get seconds
-        timeValue += (hours >= 12) ? "" : "";  // get AM/PM
-
-        $('#time').append(timeValue);
+        $('#time').append(regTime);
 
 
         //Today Temp
@@ -206,6 +226,9 @@
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var date = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th"];
         $('#today-day').append(days[new Date(data.currently.time * 1000).getDay()] + ", " + months[new Date(data.currently.time * 1000).getMonth()] + " " + date[new Date(data.currently.time * 1000).getDate()]);
+
+        //Today Card
+        $('#today').append("<h3>Today: </h3>" + "<h1>"+ data.daily.data[0].temperatureHigh.toFixed(0) +"º / " + data.daily.data[0].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[0].summary);
 
         //Tomorrow Card
         $('#tomorrow').append("<h3>Tomorrow: </h3>" + "<h1>"+ data.daily.data[1].temperatureHigh.toFixed(0) +"º / " + data.daily.data[1].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[1].summary);
@@ -226,13 +249,48 @@
             $(this).hide();
             //  console.log('hidden');
         });
+
+        // New Lat and Lon
+        $('#lat-lon-btn').click(function () {
+            latLon = "/" + $('#lat') + $('#lon');
+            $('#time').reload();
+        })
     });
 
 
 
+    // Map
+
+    mapboxgl.accessToken = mapboxToken;
+
+    var coordinates = [-98.6326, 29.4104];
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 10,
+        center: coordinates
+    });
 
 
-        // console.log(data.currently.summary);
+    var markerOptions = {
+        color: "#37515F",
+        draggable: true
+    };
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat(coordinates)
+        .addTo(map);
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+
+        $('#input-container').html('Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat);
+
+    }
+    marker.on('dragend', onDragEnd);
+
+
 </script>
 
 </body>

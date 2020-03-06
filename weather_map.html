@@ -195,8 +195,48 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
 
-    // Default San Antonio Coordinates
-    var latLon = "/29.4104,-98.6326";
+    // Map
+
+    mapboxgl.accessToken = mapboxToken;
+
+    var coordinates = [-98.486115, 29.4257];
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 10,
+        center: coordinates
+    });
+
+
+    var markerOptions = {
+        color: "#37515F",
+        draggable: true
+    };
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat(coordinates)
+        .addTo(map);
+
+
+
+
+    var latLon = "/" + marker.getLngLat().lat + "," + marker.getLngLat().lng;
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+
+        var lngLatMessage = ('Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat);
+
+        $('#input-container').html(lngLatMessage);
+
+        console.log(lngLatMessage);
+
+    }
+    marker.on('dragend', onDragEnd);
+
+
+
 
     //Currently
     $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + latLon).done(function (data) {
@@ -259,36 +299,7 @@
 
 
 
-    // Map
 
-    mapboxgl.accessToken = mapboxToken;
-
-    var coordinates = [-98.6326, 29.4104];
-
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10',
-        zoom: 10,
-        center: coordinates
-    });
-
-
-    var markerOptions = {
-        color: "#37515F",
-        draggable: true
-    };
-    var marker = new mapboxgl.Marker(markerOptions)
-        .setLngLat(coordinates)
-        .addTo(map);
-
-
-    function onDragEnd() {
-        var lngLat = marker.getLngLat();
-
-        $('#input-container').html('Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat);
-
-    }
-    marker.on('dragend', onDragEnd);
 
 
 </script>

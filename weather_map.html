@@ -11,11 +11,14 @@
     <style>
         body {
             font-family: 'Barlow', sans-serif;
+            background-color: rgb(245 245 245);
         }
-        #navbar {
-            background-color: #37515F;
-            box-shadow: 0 0 10px black;
-        }
+
+        /*-----Navbar was removed-----*/
+        /*#navbar {*/
+        /*    background-color: #37515F;*/
+        /*    box-shadow: 0 0 10px black;*/
+        /*}*/
         #card-container {
             display: flex;
             justify-content: center;
@@ -46,17 +49,13 @@
         .card-body:hover {
             box-shadow: 0 0 20px black;
         }
-
         @media only screen and (min-width: 992px) {
             #today-card {
                 display: none;
             }
         }
-
         #jumbo-text.container.row {
             margin-left: 60px;
-            /*display: flex;*/
-            /*justify-content: space-between;*/
         }
         #jumbo-data{
             margin-left: 5em;
@@ -66,8 +65,6 @@
             font-size: 14em;
             color: white;
             text-shadow: 0 0 20px darkgray;
-            /*align-content: flex-end;*/
-            /*justify-content: center;*/
         }
         #today-temp {
             font-size: 9em;
@@ -113,20 +110,27 @@
             margin: 15px;
             box-shadow: 0 0 10px black;
         }
-
-        .marker {
-            background-image: url('img/pac-man-ghost.png');
-            background-size: cover;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
         #geocoder-container > #map {
             min-width: 50%;
             margin-left: 25%;
         }
+        #footer {
+            background-color: #37515F;
+            box-shadow: 0 0 10px black;
+        }
+        .nav-item a {
+            color: white;
+        }
+        #input-container {
+            text-align: center;
+        }
+        #links img {
+            height: 20px;
+            width: auto;
+            color: white;
+            margin: 4px;
+        }
+
 
     </style>
 </head>
@@ -144,7 +148,7 @@
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 
-<!-------Navbar------->
+<!-------Navbar was removed------->
 <!--<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">-->
 <!--    <a id="head-logo" class="navbar-brand" href="#"><h1 style="color: white">Weather Project</h1></a>-->
 <!--    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
@@ -204,6 +208,23 @@
 <div id="input-container"></div>
 
 
+<!-------Footer------->
+<div id="footer">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Codeup Weather Project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Mitchel Sandidge</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="links" href="#"> <img src="img/pac-man-ghost.png" alt=""><img src="img/white-profile-icon.png"><img
+                    src="img/instagram-white-icon.png" alt=""></a>
+        </li>
+    </ul>
+</div>
+
+
 <!-------Script Sources------->
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 <script src="js/jquery-2.2.4.js" crossorigin="anonymous"></script>
@@ -217,9 +238,10 @@
 
 <script>
 
-    // This declares the map
+    // -----This creates the map-----
     mapboxgl.accessToken = mapboxToken;
 
+    // Default coordinates of page load
     var coordinates = [-98.46663763707855, 29.49723658300489];
 
     var map = new mapboxgl.Map({
@@ -249,7 +271,7 @@
 
         $('#input-container').html(lngLatMessage);
 
-        getName()
+        getName();
         getWeather()
     }
     window.onload = onLoad;
@@ -267,13 +289,10 @@
 
         latLon = '/' + lngLat.lat + ', ' +  lngLat.lng;
 
-
         getName();
         getWeather();
-
     }
     marker.on('dragend', onDragEnd);
-
 
 
     // Reverse Geocoder
@@ -289,7 +308,7 @@
                 return data.features[0].context[1].text
             });
     }
-
+    // Gets name of location using the Reverse Geocode function
     function getName (){
         var lngLat = marker.getLngLat();
 
@@ -298,26 +317,24 @@
         });
     }
 
-    //.features[0].place_name;
 
+    // Geo Coder -- Generates the search bar in top right
 
-
-    //Geo Coder
-        // geocoder.empty();
         var geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
-            marker: {
-                color: 'orange'
-            },
-            mapboxgl: mapboxgl
+            mapboxgl: mapboxgl,
+            marker: false,
+        }).on('result', function (data) {
+            marker.setLngLat(data.result.center);
+            getName();
+            console.log(data);
+
         });
 
         map.addControl(geocoder);
 
 
-
-
-    // Gets the attributes of the coordinates passed
+    // Get Weather Function -- Adds weather attributes to the HTML
     function getWeather() {
 
         // New Lat and Lon
@@ -330,54 +347,37 @@
 
 
 
-        //Currently
+        // -----This is where The Dark Sky Weather API is called-----
         $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + latLon).done(function (data) {
 
-            console.log(data);
 
             //Today Time
             var utcTime = data.currently.time;
-
             var dateObject = new Date(utcTime * 1000).toLocaleString("en-US", {timeZone: data.timezone});
-
             var newTime = dateObject.split(" ")[1];
-
             var regTime = newTime.split(":")[0] + ":" + newTime.split(":")[1];
-
-            $('#time').empty();
-
-            $('#time').append(regTime);
+            $('#time').html(regTime);
 
             //Today Temp
-            $('#today-temp').empty();
-            $('#today-temp').append(data.currently.temperature.toFixed(0) + "º");
+            $('#today-temp').html(data.currently.temperature.toFixed(0) + "º");
 
             //Today Summary
-            $('#today-summary').empty();
-            $('#today-summary').append("Weather type: " + data.currently.summary);
+            $('#today-summary').html("Weather type: " + data.currently.summary);
 
             //Today Day
             var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var date = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th"];
-            $('#today-day').empty();
-            $('#today-day').append(days[new Date(data.currently.time * 1000).getDay()] + ", " + months[new Date(data.currently.time * 1000).getMonth()] + " " + date[new Date(data.currently.time * 1000).getDate() - 1]);
+            $('#today-day').html(days[new Date(data.currently.time * 1000).getDay()] + ", " + months[new Date(data.currently.time * 1000).getMonth()] + " " + date[new Date(data.currently.time * 1000).getDate() - 1]);
 
             //Today Card
-            $('#today').empty();
-            $('#today').append("<h3>Today: </h3>" + "<h1>"+ data.daily.data[0].temperatureHigh.toFixed(0) +"º / " + data.daily.data[0].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[0].summary);
+            $('#today').html("<h3>Today: </h3>" + "<h1>"+ data.daily.data[0].temperatureHigh.toFixed(0) +"º / " + data.daily.data[0].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[0].summary);
 
             //Tomorrow Card
-            $('#tomorrow').empty();
-            $('#tomorrow').append("<h3>Tomorrow: </h3>" + "<h1>"+ data.daily.data[1].temperatureHigh.toFixed(0) +"º / " + data.daily.data[1].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[1].summary);
+            $('#tomorrow').html("<h3>Tomorrow: </h3>" + "<h1>"+ data.daily.data[1].temperatureHigh.toFixed(0) +"º / " + data.daily.data[1].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[1].summary);
 
             // Next Tomorrow Card
-            $('#next-tomorrow').empty();
-            $('#next-tomorrow').append("<h3>Day After Tomorrow: </h3>" + "<h1>"+ data.daily.data[2].temperatureHigh.toFixed(0) +"º / " + data.daily.data[2].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[2].summary);
-
-            //Location Card
-            // $('#location').empty();
-            // $('#location').append('<h1>' + data.timezone + '</h1>');
+            $('#next-tomorrow').html("<h3>Day After Tomorrow: </h3>" + "<h1>"+ data.daily.data[2].temperatureHigh.toFixed(0) +"º / " + data.daily.data[2].temperatureLow.toFixed(0) + "º </h1>" + data.daily.data[2].summary);
 
             // Loading Icon
             $('#loading').empty();
@@ -388,22 +388,9 @@
             });
             $("#loading").ajaxStop(function(){
                 $(this).hide();
-                //  console.log('hidden');
             });
         });
-
-
     }
-
-
-
-
-
-
-
-
-
-
 
 
 </script>

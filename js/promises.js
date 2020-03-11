@@ -49,7 +49,55 @@ getGithubUsernames().then((data) => {
     console.log("Last commit: " + data[0].payload.commits[0].message);
     console.log("Time of last commit: " + data[0].created_at);
     console.log("Victims email: " + data[0].payload.commits[0].author.email);
+    console.log('------------------------------');
 
 }).catch(error => console.error(error));
 
 
+
+
+
+
+
+
+
+
+//
+// function changeBackground() {
+//     return fetch('data/profiles.json')
+//         .then(response => response.json());
+// }
+//
+// changeBackground().then((data)=> {
+//     console.log(data);
+//     changeBackground().then((data) => {
+//         if (data.sandy123) {
+//             console.log("test");
+//             changingBack()
+//         }
+//     })
+// });
+//
+//
+// function changingBack() {
+//     $('body').css('background-color', 'red')
+// }
+
+//$('body').css('background-color', 'brown');
+
+// $('#name-submit').click()
+
+
+$('#name-submit').click(function () {
+    if ($('#name-input').val() === 'sandy123') {
+        $('body').css('background-color', 'brown')
+    } else if ($('#name-input').val() === 'bob234') {
+        $('body').css('background-color', 'green')
+    } else if ($('#name-input').val() === 'sally345') {
+        $('body').css('background-color', 'blue')
+    }
+});
+
+
+
+// changeBack();

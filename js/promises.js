@@ -45,7 +45,11 @@ function getGithubUsernames() {
 
 getGithubUsernames().then((data) => {
     console.log(data);
-    console.log(data[0].payload.commits[0].message);
+    console.log("Username of victim: " + data[0].actor.login);
+    console.log("Last commit: " + data[0].payload.commits[0].message);
+    console.log("Time of last commit: " + data[0].created_at);
+    console.log("Victims email: " + data[0].payload.commits[0].author.email);
+
 }).catch(error => console.error(error));
 
 

@@ -47,3 +47,5 @@ getGithubUsernames().then((data) => {
     console.log(data);
     console.log(data[0].payload.commits[0].message);
 }).catch(error => console.error(error));
+
+

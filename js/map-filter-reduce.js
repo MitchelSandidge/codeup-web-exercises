@@ -43,17 +43,27 @@ let filterYears = users.filter(function (user) {
 });
 console.log(filterYears);
 
+
+
 let filterExp = users.filter(user => user.yearsOfExperience >6);
 console.log(filterExp);
+
+
 
 let emailMap = users.map(user => user.email);
 console.log(emailMap);
 
+
+
 let totalExp = users.reduce((total, user )=> total + user.yearsOfExperience, 0);
 console.log(totalExp);
 
+
+
 let averageExp = totalExp / users.length;
 console.log(averageExp);
+
+
 
 let emailLength = users.reduce((longest, user) => {
     if (user.email.length > longest.length ){
@@ -64,8 +74,23 @@ let emailLength = users.reduce((longest, user) => {
 
 console.log(emailLength);
 
+
+
+let names = users.reduce((sentence, user) => sentence === '' ? user.name : sentence + ", " + user.name, '');
+console.log("Your insructors:" + names);
+
+
 let userNames = users.reduce((accumulation, currentName) => {
     return accumulation + " " + currentName.name
 }, "Your instructors are:");
 
 console.log(userNames);
+
+
+let uniqueLang = users.reduce((unique, current)=> {
+    if (current.languages !== unique) {
+        return unique + current.languages
+    }
+}, "");
+
+console.log(uniqueLang);

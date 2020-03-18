@@ -87,6 +87,16 @@ getGithubUsernames().then((data) => {
 
 // $('#name-submit').click()
 
+// $('#name-submit').click((e)=>{
+//     e.preventDefault();
+//     let userInput = $('#name-input').val();
+//     return fetch('data/profiles.json')
+//         .then(response => response.json())
+//         .then((data)=> console.log(data))
+// })
+
+
+
 
 $('#name-submit').click(function () {
     if ($('#name-input').val() === 'sandy123') {
